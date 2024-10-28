@@ -12,7 +12,7 @@ public class ParProgram {
 
 
         // Loop to keep adding recipes until user decides to end program
-        while (anotherOne == "yes") {
+        while (anotherOne.equalsIgnoreCase("yes")) {
             Recipe recipe = new Recipe();
             
 
@@ -23,6 +23,9 @@ public class ParProgram {
             // Prompt 2 to determine the multiple of the recipe prepped
             System.out.println("How many times was the recipe prepped?");
             multiple = scanner.nextInt();
+
+            // Consumes leftover new line left over from  scanner.nextInt()
+            scanner.nextLine();
 
             try (BufferedReader br = new BufferedReader(new FileReader(recipeName + ".txt"))) {
                 String line;
@@ -46,5 +49,6 @@ public class ParProgram {
             anotherOne = scanner.nextLine().toLowerCase();
 
         }
+        scanner.close();
     }
 }
