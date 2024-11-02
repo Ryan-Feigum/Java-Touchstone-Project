@@ -3,20 +3,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class ParProgram {
     public static void main(String[] args) {
         // Set global local variables
         String recipeName;
         String anotherOne = "yes";
-        float multiple = 1;
+        double multiple = 1;
         // Initialize scanner for user input
         Scanner scanner = new Scanner(System.in);
-
+        Recipe recipe = new Recipe();
 
         // Loop to keep adding recipes until user decides to end program
         while (anotherOne.equalsIgnoreCase("yes")) {
             // Create new recipe object from Recipe.java class
-            Recipe recipe = new Recipe();
             
 
             // Prompt 1 to request which recipe to pull information from
@@ -43,16 +43,33 @@ public class ParProgram {
 
                     // Set key as ingredientName variable
                     String ingredientName = parts[0].trim();
-                    // Set value as ingredientQuantity variable multiplied by the multiple variable
-                    recipe.addAttribute(ingredientName, recipe.adjustIngredientAmount(Integer.parseInt(parts[1].trim()), multiple));
 
+                    // Set value as ingredientQuantity
+                    double ingredientQuantity = Double.parseDouble(parts[1].trim());
+
+                    // Update value of ingredientQuantity by multiplying by multiple
+                    double updatedQuantity = recipe.adjustIngredientAmount(ingredientQuantity, multiple);
+
+                    // Update value if key exists. Otherwise add key:value
+                    if(recipe.attributes.containsKey(ingredientName)) {
+                        double formerQuantity = recipe.attributes.get(ingredientName);
+                        recipe.addAttribute(ingredientName, formerQuantity + updatedQuantity);
+                    } else {
+                        recipe.addAttribute(ingredientName, updatedQuantity);
+                    }
+                    
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
 
+            
+
             // Debugging to ensure attributes are being properly manipulated and assigned
             System.out.println(recipe.toString());
+
+            // Write to new file with prepMultiple appended to the end of the filename
+
 
             // Prompt 3 to determine whether to break the loop
             System.out.println("Do you want to add another recipe?");

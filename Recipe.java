@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class Recipe {
     // Create object as a HashMap in order to allow for dynamic updating due to varying quantities of ingredient variables
-    private Map<String, Object> attributes = new HashMap<>();
+    public Map<String, Double> attributes = new HashMap<>();
 
     // Method to add new attribute
-    public void addAttribute(String key, Object value) {
+    public void addAttribute(String key, Double value) {
         attributes.put(key, value);
     }
 
@@ -17,7 +17,7 @@ public class Recipe {
     }
 
     // Method to adjust amount of ingredient based on multiple entered
-    public float adjustIngredientAmount(float amount, float multiple) {
+    public double adjustIngredientAmount(double amount, double multiple) {
         amount = amount * multiple;
         return amount;
     }
