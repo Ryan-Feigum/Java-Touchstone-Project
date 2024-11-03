@@ -9,6 +9,7 @@ public class Recipe {
     // Method to add new attribute
     public void addAttribute(String key, Double value) {
         attributes.put(key, value);
+        
     }
 
     // Method to retrieve attribute value

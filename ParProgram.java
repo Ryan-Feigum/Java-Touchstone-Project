@@ -2,7 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-
+import java.nio.file.*;
+import java.time.*;
+import java.io.*;
 
 public class ParProgram {
     public static void main(String[] args) {
@@ -12,7 +14,10 @@ public class ParProgram {
         double multiple = 1;
         // Initialize scanner for user input
         Scanner scanner = new Scanner(System.in);
+        // Initialize object for storing ingredients and quantities across multiple loops
         Recipe recipe = new Recipe();
+        // File object pointing to .txt file
+        File productUsed = new File(LocalDate.now() + "productUsed.txt");
 
         // Loop to keep adding recipes until user decides to end program
         while (anotherOne.equalsIgnoreCase("yes")) {
@@ -62,13 +67,13 @@ public class ParProgram {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-
+            
+            
             
 
             // Debugging to ensure attributes are being properly manipulated and assigned
             System.out.println(recipe.toString());
 
-            // Write to new file with prepMultiple appended to the end of the filename
 
 
             // Prompt 3 to determine whether to break the loop
@@ -77,6 +82,13 @@ public class ParProgram {
             anotherOne = scanner.nextLine().toLowerCase();
 
         }
+// Create new file if one does not exist or append if a file already exists
+try {
+    Files.writeString(productUsed.toPath(), recipe.toString(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+} catch (IOException ex){
+    System.out.println("Error: " + ex.getMessage());
+}
+
         // Close scanner to prevent resource leaks
         scanner.close();
     }
