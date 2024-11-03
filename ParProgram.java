@@ -21,9 +21,7 @@ public class ParProgram {
 
         // Loop to keep adding recipes until user decides to end program
         while (anotherOne.equalsIgnoreCase("yes")) {
-            // Create new recipe object from Recipe.java class
             
-
             // Prompt 1 to request which recipe to pull information from
             System.out.println("Which recipe was prepped?");
             // Read user input and store in recipeName variable
@@ -68,26 +66,21 @@ public class ParProgram {
                 ex.printStackTrace();
             }
             
-            
-            
-
             // Debugging to ensure attributes are being properly manipulated and assigned
             System.out.println(recipe.toString());
-
 
 
             // Prompt 3 to determine whether to break the loop
             System.out.println("Do you want to add another recipe?");
             // Read user input and store in anotherOne variable
             anotherOne = scanner.nextLine().toLowerCase();
-
         }
-// Create new file if one does not exist or append if a file already exists
-try {
-    Files.writeString(productUsed.toPath(), recipe.toString(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-} catch (IOException ex){
-    System.out.println("Error: " + ex.getMessage());
-}
+        // Create new file if one does not exist or append if a file already exists
+        try {
+            Files.writeString(productUsed.toPath(), recipe.toString(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        } catch (IOException ex){
+            System.out.println("Error: " + ex.getMessage());
+        }
 
         // Close scanner to prevent resource leaks
         scanner.close();
