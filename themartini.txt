@@ -1,0 +1,3 @@
+Vodka:4000
+Bombay Sapphire:1000
+Noilly Prat Dry Vermouth:2000

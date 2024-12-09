@@ -1,0 +1,4 @@
+Bombay Sapphire:6000
+Noilly Prat Rouge:3000
+Campari:1500
+Luxardo Rosso:500

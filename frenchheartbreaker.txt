@@ -1,0 +1,10 @@
+Cocchi Rosa:1500
+Combier Rose:2250
+Combier Pamplemousse:2250
+Rose:5000
+P.P. Raspberry:850
+P.P. Lychee:850
+P.P. Meyer Lemon:850
+P.P. Guava:850
+Moscato D'Asti:5000
+Junmai Sake:3000

@@ -1,0 +1,4 @@
+Benchmark 8:3000
+Jim Beam Rye:2000
+Averna:1500
+Kafe Anme Coffee Bitters:100

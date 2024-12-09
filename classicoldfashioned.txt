@@ -1,0 +1,6 @@
+Angel's Envy Bourbon:4000
+Angel's Envy Rye:1000
+Benchmark 8:2000
+Jim Beam Rye:3000
+Muscovado:675
+Angostura:150

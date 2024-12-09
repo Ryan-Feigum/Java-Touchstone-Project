@@ -26,7 +26,7 @@ public class Recipe {
     // Display all attributes for debugging
     @Override
     public String toString() {
-        return "Attributes:  " + attributes;
+        return "Amount of product used:  " + attributes;
     }
 
 
