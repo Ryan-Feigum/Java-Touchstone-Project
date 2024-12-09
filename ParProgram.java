@@ -1,10 +1,7 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
 import java.nio.file.*;
 import java.time.*;
-import java.io.*;
+import java.util.Scanner;
 
 public class ParProgram {
     public static void main(String[] args) {
@@ -68,6 +65,9 @@ public class ParProgram {
             
             // Debugging to ensure attributes are being properly manipulated and assigned
             System.out.println(recipe.toString());
+            //System.out.println(recipe.sortAttributes(recipe.toString()));
+
+
 
 
             // Prompt 3 to determine whether to break the loop
@@ -75,9 +75,12 @@ public class ParProgram {
             // Read user input and store in anotherOne variable
             anotherOne = scanner.nextLine().toLowerCase();
         }
+
+
+
         // Create new file if one does not exist or append if a file already exists
         try {
-            Files.writeString(productUsed.toPath(), recipe.toString(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            Files.writeString(productUsed.toPath(), recipe.generateSortedOutput(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException ex){
             System.out.println("Error: " + ex.getMessage());
         }
