@@ -67,7 +67,7 @@ public class Recipe {
 
         // Iterate over List and clean up lines for ease of reading
         for (Map.Entry<String, Double> entry : sortedEntries) {
-            output.append("\n").append(entry.getKey()).append(" ").append(entry.getValue()).append("\n");
+            output.append(entry.getKey()).append(" ").append(entry.getValue()).append("\n");
         }
 
         return output.toString();
